@@ -3,9 +3,12 @@ import { ButtonRounded } from './button'
 import Icon from './icon'
 
 const SearchStyled = styled.div`
-  position: fixed;
-  inset-inline-start: 1.5rem;
-  inset-block-end: 1.5rem;
+   grid-area: search;
+
+  position: sticky;
+  /* inset-inline-end: 1rem; */
+  inset-block-end: 2rem;
+  
 `
 
 function Search({ setModal }) {
