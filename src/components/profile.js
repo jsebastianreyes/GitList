@@ -35,6 +35,15 @@ const ProfileStyled = styled.div`
     margin-block: 1rem;
     font: var(--body2-semi-bold);
   }
+  .infoIcon{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+  }
+
+  .infoIcon span, .infoIcon a{
+    margin: 0;
+  }
   a:hover {
     text-decoration: underline;
   }
@@ -75,20 +84,20 @@ function Profile(props) {
         {bio}
       </p>
       <p className="follwers info">
-        • {followers} <span>followers</span> <span>•</span> {following} <span>following</span>
+        <span><Icon name="user" size="24" color="#8B949E"/></span> {followers} <span>followers</span> <span>•</span> {following} <span>following</span>
       </p>
-      {/* <p className="stars info">
-        • 81
-      </p> */}
-      <p className="location info">
-        • {location}
-      </p>
-      <a className="info" href={blog} target="_blank" rel="noreferrer">
+     
+      {location ? ( <p className='infoIcon'> <Icon name="location" size="24" color="#8B949E" /> <span className="location info">
+         {location}
+      </span>  </p>) : null} 
+
+      {blog ? (<p className='infoIcon'> <Icon name="link" size="24" color="#8B949E"/> <a className="info" href={blog} target="_blank" rel="noreferrer" >
         {blog}
-      </a>
-      <a className="info" href={`https://twitter.com/${twitter_username}`} target="_blank" rel="noreferrer">
+      </a> </p>) : null }
+
+      { twitter_username ? (<p className='infoIcon'> <Icon name="twitter" size="24" color="#8B949E"/>  <a className="info" href={`https://twitter.com/${twitter_username}`} target="_blank" rel="noreferrer">
         @{twitter_username}
-      </a>
+      </a></p>) : null }
     </ProfileStyled>
   )
 }

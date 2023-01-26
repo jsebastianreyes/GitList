@@ -3,7 +3,7 @@ import Language from './language'
 import Icon from './icon'
 
 const RepoItemStyled = styled.div`
-  padding-block: 1rem;
+  padding-block-end: 1.2rem;
   display: flex;
   gap: 1rem;
   flex-direction: column;

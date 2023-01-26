@@ -12,7 +12,7 @@ function App() {
   const params = useParams()
   let username = params.user
   if (!username) {
-    username = 'leonidasesteban'
+    username = 'jsebastianreyes'
   }
   const [user, setUser] = useState({})
   const [repos, setRepos] = useState([])
