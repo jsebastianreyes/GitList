@@ -1,13 +1,11 @@
 import styled from 'styled-components'
 import RepoItem from './repo-item'
-import { useEffect } from 'react'
 
 const RepoListStyled = styled.div`
   grid-area: repo-list;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  /* background: pink; */
 `
 
 function RepoList({ repoList, search, selectType, language, sort }) {
@@ -32,10 +30,7 @@ function RepoList({ repoList, search, selectType, language, sort }) {
       const copyArray = [...repoList]
       list = copyArray.sort((a,b) => new Date(b.updated_at) - new Date (a.updated_at))
     }
-  }
-
-              
-              
+  }           
     return (
       <RepoListStyled>
       {list.map((item) => {
