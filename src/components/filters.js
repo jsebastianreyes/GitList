@@ -19,6 +19,12 @@ const FiltersStyled = styled.div`
     display: flex;
     gap: .5rem;
   }
+  @media screen and (prefers-color-scheme: light) {
+    .count {
+     color: var(--black);
+  }
+  }
+
 `
 
 function Filters({ setSearch, setSelectType, repoList, setLanguage, setSort}) {

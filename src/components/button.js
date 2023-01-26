@@ -20,6 +20,11 @@ const ButtonStyled = styled.button`
     background: var(--white);
     color: var(--button);
   }
+
+  @media screen and (prefers-color-scheme: light) {
+    background-color: var(--white);
+    color: var(--black);
+  }
 `
 
 function Button({ text, link, className, icon }) {
@@ -45,6 +50,8 @@ export const ButtonContrast = styled(Button)`
     background: var(--buttonBG);
     color:  var(--white) ;
   }
+
+ 
 `
 export const ButtonRounded = styled(Button)`
   min-inline-size: initial;
@@ -54,6 +61,14 @@ export const ButtonRounded = styled(Button)`
   &:hover {
     background: var(--buttonBG);
     transform: scale(1.1);
+  }
+
+   @media screen and (prefers-color-scheme: light) {
+    /* background-color: var(--white); */
+    &:hover {
+    background: var(--white);
+    transform: scale(1.1);
+  }
   }
 `
 
