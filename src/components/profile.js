@@ -53,6 +53,16 @@ const ProfileStyled = styled.div`
     gap: .5rem;
     margin-block-end: 1.5rem;
   }
+
+  @media screen and (prefers-color-scheme: light) {
+    .name {
+    color: var(--black);
+   }
+   .info {
+    /* border: 1px solid red; */
+    color: var(--grey);
+  }
+  }
 `
 
 function Profile(props) {

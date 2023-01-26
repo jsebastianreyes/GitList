@@ -59,6 +59,17 @@ const RepoItemStyled = styled.div`
     & span::first-letter {
       text-transform: uppercase;
     }
+  }
+
+    @media screen and (prefers-color-scheme: light) {
+      .topicItem {
+        color: var(--primary);
+        background: #d5e8ff;
+      }
+      .details-item{
+        color: var(--grey);
+      }
+    
 }
 `
 
@@ -101,11 +112,11 @@ function RepoItem(props) {
           props.language ? <Language name={props.language} /> : null
         }
         <span className="details-item">
-          <Icon name="star" />
+          <Icon name="star" color={'var(--whiteIcon)'}/>
           <span>{props.stargazers_count}</span>
         </span>
         <span className="details-item">
-          <Icon name="branch" />
+          <Icon name="branch" color={'var(--whiteIcon)'} />
           <span>{props.forks_count}</span>
         </span>
         <span className="details-item">

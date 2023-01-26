@@ -8,9 +8,12 @@ const SelectorStyled = styled.select`
   border-radius: .5rem;
   outline: none;
   cursor: pointer;
+  
+  @media screen and (prefers-color-scheme: light) {
+    background: var(--white);
+    color: var(--black);
+    border: 1px solid var(--grey);
 
-  .test{
-    background: red;
   }
 `
 

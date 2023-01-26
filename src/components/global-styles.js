@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStylesStyled = createGlobalStyle`
   :root {
+    --whiteIcon: #fffffe;
     --primary: #57a6ff;
     --buttonBG: #22262c;
     --white: #fffffe;
@@ -33,6 +34,14 @@ const GlobalStylesStyled = createGlobalStyle`
     font: var(--body1-regular);
     margin: 0;
   }
+
+  @media screen and (prefers-color-scheme: light) {
+  :root {
+    --bg: #fff;
+    --light: #fff;
+    --whiteIcon: #8b949e;
+  }
+}
 
 `
 
