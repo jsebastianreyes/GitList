@@ -8,12 +8,17 @@ const SelectorStyled = styled.select`
   border-radius: .5rem;
   outline: none;
   cursor: pointer;
+
+  .test{
+    background: red;
+  }
 `
 
-function Selector({ children }) {
+function Selector({ children, onChange }) {
   return (
-    <SelectorStyled>
+    <SelectorStyled onChange={onChange}>
       {children}
+      
     </SelectorStyled>
   )
 }

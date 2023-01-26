@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import InputText from './input-text'
 import Selector from './selector'
 import Separator from './separator'
+
+
 const FiltersStyled = styled.div`
   grid-area: filters;
   .count {
@@ -19,39 +21,62 @@ const FiltersStyled = styled.div`
   }
 `
 
-function Filters({ repoListCount, setSearch }) {
+function Filters({ setSearch, setSelectType, repoList, setLanguage, setSort}) {
+  
+  let languages = Array.from(new Set(repoList.filter(item => item.language !==null).map(el => el.language)))
+   
+  function handleLanguage(e) {
+    setLanguage(e.target.value)
+    
+  }
+
   function handleChange(event) {
     setSearch(event.target.value)
   }
+
+  function handleType(e){
+   setSelectType(e.target.value)
+  }
+
+  function handleSort(e){
+    setSort(e.target.value)
+  }
+
   return (
     <FiltersStyled>
       <h2 className="count">
-        Repositorios {repoListCount}
+        Repositories ({repoList.length})
       </h2>
       <div className="action-list">
         <InputText
-          placeholder="Busca un repositorio"
+          placeholder="Find a repository"
           type="search"
           onChange={handleChange}
+        
         />
         <div className="select-list">
 
-          <Selector>
-            <option value="all" >all</option>
-            <option value="forks">forks</option>
+          <Selector onChange={handleType}>
+            <option value="type" disabled>Type</option>
+            <option value="all">All</option>
+            <option value="forks">Forks</option>
           </Selector>
-          <Selector>
-            <option value="lenguaje" disabled>lenguaje</option>
-            <option value="html">html</option>
-            <option value="css">css</option>
-            <option value="javascript">javascript</option>
+          <Selector onChange={handleLanguage}>
+            <option value="lenguaje" disabled>Language</option>
+            <option value="all">All</option>
+            {
+              languages.map(language => {
+                return <option key={language} value={language}> {language} </option>
+              })
+            }
+            
           </Selector>
-          <Selector>
-            <option value="ordenar" disabled>ordenar</option>
-            <option value="stars">stars</option>
+          <Selector onChange={handleSort}>
+            <option value="ordenar" disabled>Sort</option>
+            <option value="name">Name</option>
+            <option value="updated">Last Update</option>
           </Selector>
         </div>
-
       </div>
       <Separator />
     </FiltersStyled>
