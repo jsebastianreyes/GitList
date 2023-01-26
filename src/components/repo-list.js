@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import RepoItem from './repo-item'
-
+import NotFound from './not-found'
+import { useState } from 'react'
 const RepoListStyled = styled.div`
   grid-area: repo-list;
   display: flex;
@@ -10,7 +11,14 @@ const RepoListStyled = styled.div`
 
 function RepoList({ repoList, search, selectType, language, sort }) {
   let list = repoList
-  if (search !== '') list = list.filter((item) => { return item.name.search(search) >= 0})
+  let busquedas = list.length
+  if (search !== '') {
+      const data = list.filter((item) => { return item.name.search(search) >= 0 })
+      busquedas = data.length
+      list = data
+    }
+  
+
   else if(language !== ''){
     if(language !== 'all') list = list.filter(item => item.language === language)
     else if(language === 'all') list = repoList
@@ -33,6 +41,8 @@ function RepoList({ repoList, search, selectType, language, sort }) {
   }           
     return (
       <RepoListStyled>
+        
+        {busquedas === 0 ? <NotFound/> : null}    
       {list.map((item) => {
         return <RepoItem {...item} key={item.id} />
       })}
