@@ -4,11 +4,15 @@ const SelectorStyled = styled.select`
   border: none;
   background: var(--buttonBG);
   color: var(--white);
-  padding-inline: 1rem;
+  padding: .5rem 1rem;
   border-radius: .5rem;
   outline: none;
   cursor: pointer;
-  
+  flex: 1;
+
+  @media screen and (min-width: 768px) {
+    
+  }
   @media screen and (prefers-color-scheme: light) {
     background: var(--white);
     color: var(--black);

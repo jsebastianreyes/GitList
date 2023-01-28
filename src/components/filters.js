@@ -13,12 +13,20 @@ const FiltersStyled = styled.div`
   }
   .action-list {
     display: flex;
+    flex-direction: column;
     gap: 1rem;
   }
   .select-list {
     display: flex;
     gap: .5rem;
   }
+
+  @media screen and (min-width: 768px) {
+    .action-list{
+      flex-direction: row;
+    }
+  }
+
   @media screen and (prefers-color-scheme: light) {
     .count {
      color: var(--black);
