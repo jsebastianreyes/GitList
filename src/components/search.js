@@ -7,7 +7,10 @@ const SearchStyled = styled.div`
 
   position: sticky;
   /* inset-inline-end: 1rem; */
-  inset-block-end: 2rem;
+  inset-block-end: 1rem;
+  @media screen and (min-width: 768px) {
+    inset-block-end: 2rem;
+  }
   
 `
 

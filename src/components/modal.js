@@ -2,8 +2,8 @@ import React, { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Overlay from './overlay'
 import styled from 'styled-components'
-import { ButtonContrast } from './components/button'
-import InputText from './components/input-text'
+import { ButtonContrast } from './button'
+import InputText from './input-text'
 import ReactDOM from 'react-dom'
 
 const modalRoot = document.getElementById('portal')
