@@ -48,11 +48,18 @@ const ModalContentStyled = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  inline-size: 24rem;
+  max-inline-size: 24rem;
+  inline-size: 100%;
+  border: 1px solid #fff;
   .title {
     font: var(--headline2-semi-bold);
     margin: 0;
   }
+  @media screen and (min-width: 768px) {
+
+    border: 0;
+  }
+
   @media screen and (prefers-color-scheme: light) {
     border: 1px solid var(--grey);
     .title{

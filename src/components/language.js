@@ -15,19 +15,25 @@ const LanguageStyled = styled.div`
 
 const languanges = {
   ruby: {
-    color: 'red'
+    color: 'orange'
   },
   css: {
-    color: 'green'
+    color: 'purple'
   },
   javascript: {
     color: 'yellow'
+  },
+  html:{
+    color: 'chocolate'
+  },
+  python:{
+    color: 'red'
   }
 }
 
 function Language({ name }) {
   const formattedName = name.toLowerCase()
-  const color = languanges[formattedName] ? languanges[formattedName].color : 'white'
+  const color = languanges[formattedName] ? languanges[formattedName].color : 'salmon'
 
 
   return (

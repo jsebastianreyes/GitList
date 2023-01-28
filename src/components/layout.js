@@ -6,6 +6,9 @@ const LayoutStyled = styled.main`
   padding-inline: 20px;
   max-inline-size: 75rem; // 1200px
   padding-block: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas: "profile profile" "filters filters" "repo-list repo-list" ". search";
   @media screen and (min-width: 768px) {
     display: grid;
     /* border: 10px solid red; */

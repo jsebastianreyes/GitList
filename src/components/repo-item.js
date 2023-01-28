@@ -33,7 +33,8 @@ const RepoItemStyled = styled.div`
   }
   .topicList {
     display: flex;
-    gap: .25rem;
+    flex-wrap: wrap;
+    gap: .35rem;
   }
 
   .topicItem {
