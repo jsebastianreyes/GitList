@@ -10,7 +10,6 @@ const RepoListStyled = styled.div`
 `
 
 function RepoList({ repoList, search, selectType, language, sort }) {
-  console.log(sort)
   let list = repoList.sort((a,b) => new Date(b.updated_at) - new Date (a.updated_at))
   let busquedas = list.length
 

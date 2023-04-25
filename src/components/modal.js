@@ -5,6 +5,9 @@ import styled from 'styled-components'
 import { ButtonContrast } from './button'
 import InputText from './input-text'
 import ReactDOM from 'react-dom'
+import { ButtonRounded } from './button'
+import Icon from './icon'
+
 
 const modalRoot = document.getElementById('portal')
 class ModalPortal extends React.Component {
@@ -66,13 +69,22 @@ const ModalContentStyled = styled.form`
       color: var(--black);
     }
   }
+
+  .close{
+    position: absolute;
+    background: transparent;
+    border: 0;
+    inset-inline-end: 0;
+    inset-block-start: -2rem;
+    cursor: pointer;
+  }
 `
 
 function ModalContent({ setModal }) {
   const form = useRef(null)
   const navigator = useNavigate()
 
-
+ 
   function handleSubmit(event) {
 
     event.preventDefault()
@@ -84,7 +96,11 @@ function ModalContent({ setModal }) {
   }
   return (
     <Overlay>
-      <ModalContentStyled ref={form} action="" onSubmit={handleSubmit}>
+      <ModalContentStyled ref={form} action="" onSubmit={handleSubmit} >
+        <button className='close' onClick={()=> setModal(false)}>
+         <Icon name="cancel" size={24} color={'var(--whiteIcon)'} />
+       </button>
+
         <h2 className='title'>Busca a tu usuario favorito</h2>
         <InputText type="text" autoComplete='do-not-autofill' name="username" placeholder="Username" />
         <ButtonContrast text="Buscar" />
