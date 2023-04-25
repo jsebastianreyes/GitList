@@ -18,9 +18,9 @@ function App() {
   const [repos, setRepos] = useState([])
   const [modal, setModal] = useState(false)
   const [search, setSearch] = useState('')
-  const [selectType, setSelectType] = useState('')
-  const [language, setLanguage] = useState('')
-  const [sort, setSort] = useState('')
+  const [selectType, setSelectType] = useState('all')
+  const [language, setLanguage] = useState('all')
+  const [sort, setSort] = useState('updated')
  
   useEffect(() => {
     getUser(username).then(({ data, isError }) => {

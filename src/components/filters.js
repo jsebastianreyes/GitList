@@ -45,15 +45,18 @@ function Filters({ setSearch, setSelectType, repoList, setLanguage, setSort}) {
   }
 
   function handleChange(event) {
-    setSearch(event.target.value)
+    const value = event.target.value
+    setSearch(value)
   }
 
-  function handleType(e){
-   setSelectType(e.target.value)
+  function handleType(event){
+    const value = event.target.value
+   setSelectType(value)
   }
 
-  function handleSort(e){
-    setSort(e.target.value)
+  function handleSort(event){
+    const value = event.target.value
+    setSort(value)
   }
 
   return (
@@ -87,8 +90,8 @@ function Filters({ setSearch, setSelectType, repoList, setLanguage, setSort}) {
           </Selector>
           <Selector onChange={handleSort}>
             <option value="ordenar" disabled>Sort</option>
-            <option value="name">Name</option>
             <option value="updated">Last Update</option>
+            <option value="name">Name</option>
           </Selector>
         </div>
       </div>

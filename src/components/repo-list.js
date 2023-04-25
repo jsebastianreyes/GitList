@@ -10,35 +10,30 @@ const RepoListStyled = styled.div`
 `
 
 function RepoList({ repoList, search, selectType, language, sort }) {
-  let list = repoList
+  console.log(sort)
+  let list = repoList.sort((a,b) => new Date(b.updated_at) - new Date (a.updated_at))
   let busquedas = list.length
-  if (search !== '') {
-      const data = list.filter((item) => { return item.name.search(search) >= 0 })
-      busquedas = data.length
-      list = data
-    }
-  
 
-  else if(language !== ''){
-    if(language !== 'all') list = list.filter(item => item.language === language)
-    else if(language === 'all') list = repoList
-  }
-  else if(selectType){
-    if(selectType === 'forks'){
-      const copyArray = [...repoList]
-      list = copyArray.sort((a,b) => b.forks_count - a.forks_count)
+
+  if (search !== '' || language !== 'all' || selectType !== 'all' || sort !== 'updated') {
+      const data = list.filter((item) => { 
+      return item.name.search(search) >= 0  &&
+      (language ===  'all' || item.language === language) && 
+      (selectType === 'all' || item.forks_count >= 1)  
+    })
+
+    data.sort((a, b) => {
+      if (b.forks_count > a.forks_count &&  a.name.localeCompare(b.name)) return -1
+      // if ( a.name.localeCompare(b.name)) return -1
+      });
+    
+    // if(selectType !== 'all') data.sort((a,b) => b.forks_count - a.forks_count )
+    // else if(sort === 'name') data.sort((a, b) => a.name.localeCompare(b.name))
+    busquedas = data.length 
+    list = data
     }
-    else if(selectType === 'all') list = repoList
-  }
-  else if(sort){
-    if(sort === 'name'){
-      list = repoList
-    }
-    else if(sort === 'updated'){
-      const copyArray = [...repoList]
-      list = copyArray.sort((a,b) => new Date(b.updated_at) - new Date (a.updated_at))
-    }
-  }           
+
+            
     return (
       <RepoListStyled>
         
