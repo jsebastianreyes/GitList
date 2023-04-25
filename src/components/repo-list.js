@@ -22,13 +22,8 @@ function RepoList({ repoList, search, selectType, language, sort }) {
       (selectType === 'all' || item.forks_count >= 1)  
     })
 
-    data.sort((a, b) => {
-      if (b.forks_count > a.forks_count &&  a.name.localeCompare(b.name)) return -1
-      // if ( a.name.localeCompare(b.name)) return -1
-      });
-    
-    // if(selectType !== 'all') data.sort((a,b) => b.forks_count - a.forks_count )
-    // else if(sort === 'name') data.sort((a, b) => a.name.localeCompare(b.name))
+    if(selectType !== 'all') data.sort((a,b) => b.forks_count - a.forks_count )
+    else if(sort === 'name') data.sort((a, b) => a.name.localeCompare(b.name))
     busquedas = data.length 
     list = data
     }
