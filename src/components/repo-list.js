@@ -20,7 +20,7 @@ function RepoList({ repoList, search, selectType, language, sort }) {
       const data = list.filter((item) => { 
       return item.name.search(search) >= 0  &&
       (language ===  'all' || item.language === language) && 
-      (selectType === 'all' || item.forks_count >= 1)  
+      (selectType === 'all' || item.forks_count >= 0)  
     })
 
       if(selectType !== 'all' && sort === 'updated') data.sort((a,b) => b.forks_count - a.forks_count )
