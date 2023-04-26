@@ -10,7 +10,9 @@ const RepoListStyled = styled.div`
 `
 
 function RepoList({ repoList, search, selectType, language, sort }) {
-  let list = repoList.sort((a,b) => new Date(b.updated_at) - new Date (a.updated_at))
+
+
+  let list = [...repoList].sort((a,b) => new Date(b.updated_at) - new Date (a.updated_at))
   let busquedas = list.length
 
 
@@ -21,10 +23,11 @@ function RepoList({ repoList, search, selectType, language, sort }) {
       (selectType === 'all' || item.forks_count >= 1)  
     })
 
-    if(selectType !== 'all') data.sort((a,b) => b.forks_count - a.forks_count )
-    else if(sort === 'name') data.sort((a, b) => a.name.localeCompare(b.name))
-    busquedas = data.length 
-    list = data
+      if(selectType !== 'all' && sort === 'updated') data.sort((a,b) => b.forks_count - a.forks_count )
+      else if(sort === 'name' && selectType === 'all') data.sort((a, b) => a.name.localeCompare(b.name))
+
+      busquedas = data.length 
+      list = data
     }
 
             

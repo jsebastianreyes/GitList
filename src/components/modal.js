@@ -69,7 +69,7 @@ const ModalContentStyled = styled.form`
       color: var(--black);
     }
   }
-
+  
   .close{
     position: absolute;
     background: transparent;
